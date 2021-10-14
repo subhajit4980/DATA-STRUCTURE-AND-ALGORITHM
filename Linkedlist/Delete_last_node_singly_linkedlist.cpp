@@ -5,7 +5,6 @@ struct Node
     int data;
     Node*next;
     Node(int x)
-    /* data */
     {
         data=x;
         next=NULL;
@@ -14,10 +13,14 @@ struct Node
 Node * deletelast(Node*head)
 {
     if(head==NULL)
-        {return NULL;}
+        {
+            return NULL;
+            }
     if(head->next==NULL)
-        {delete head;
-        return NULL;}
+        {
+        delete head;
+        return NULL;
+        }
     Node*curr=head;
     while (curr->next->next !=NULL)
     {
