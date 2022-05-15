@@ -18,7 +18,7 @@ Node* detectcycle(Node* head)
         slow_p = slow_p->next; 
         fast_p = fast_p->next->next; 
         if (slow_p == fast_p) { 
-            return slow_p; 
+            return fast_p; 
         } 
     } 
     return NULL; 
@@ -28,6 +28,8 @@ Node* detectfirstNode(Node*head)
 {
     Node* meet=detectcycle(head);
     Node* start=head;
+    if(meet==NULL)
+        {return NULL;}
     while (start!=meet)
     {
         /* code */
@@ -40,11 +42,11 @@ Node* detectfirstNode(Node*head)
 
 int main() 
 { 
-	Node *head=new Node(15);
-	head->next=new Node(10);
-	head->next->next=new Node(12);
-	head->next->next->next=new Node(20);
-	head->next->next->next->next=head->next->next;
+	Node *head=new Node(3);
+	head->next=new Node(2);
+	head->next->next=new Node(0);
+	head->next->next->next=new Node(-4);
+	head->next->next->next->next=head->next;
     detectfirstNode(head);
 	return 0;
 } 
